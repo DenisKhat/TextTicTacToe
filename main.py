@@ -96,7 +96,6 @@ def checkWinner():
             winner = "The computer is"
 
 
-
 def showBoard():
     print()
     print("             " + board[0] + " | " + board[1] + " | " + board[2])
