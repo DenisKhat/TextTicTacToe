@@ -1,7 +1,7 @@
 import random
 
 import ai
-
+turnNumber = 0
 board = [" ", " ", " ", " ", " ", " ", " ", " ", " "]  # set up the board to be completely empty at the start
 humanMoving: bool = random.choice([True, False])
 winner = ""
@@ -84,11 +84,17 @@ def aiTurn():
 
 def checkWinner():
     global winner
+    global turnNumber
+    if turnNumber == 9:
+
+        winner = "No one is"
+    turnNumber += 1
     for combination in ai.winningCombinations:
         if "X" == board[combination[0] - 1] == board[combination[1] - 1] == board[combination[2] - 1]:
             winner = "You are"
         elif "O" == board[combination[0] - 1] == board[combination[1] - 1] == board[combination[2] - 1]:
             winner = "The computer is"
+
 
 
 def showBoard():
@@ -107,4 +113,3 @@ def endGame():
 
 introduction()
 startGame()
-# help()
